@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌭 Important Question 🌭</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(45deg, #ff69b4, #ff1493, #dc143c, #ff69b4);
+            background-size: 400% 400%;
+            animation: gradient 8s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating hot dogs */
+        .hotdog {
+            position: fixed;
+            font-size: 80px;
+            animation: float 12s infinite ease-in-out;
+            opacity: 0.5;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg); 
+            }
+            25% {
+                transform: translateY(-30px) rotate(45deg);
+            }
+            50% { 
+                transform: translateY(-60px) rotate(90deg); 
+            }
+            75% {
+                transform: translateY(-30px) rotate(135deg);
+            }
+        }
+
+        .hotdog:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .hotdog:nth-child(2) { top: 70%; right: 10%; animation-delay: 3s; }
+        .hotdog:nth-child(3) { top: 30%; right: 15%; animation-delay: 6s; }
+        .hotdog:nth-child(4) { bottom: 20%; left: 70%; animation-delay: 9s; }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 8px dashed #ff1493;
+            max-width: 600px;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #dc143c;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 0px #ff69b4;
+            animation: wobble 2s ease-in-out infinite;
+        }
+
+        @keyframes wobble {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+
+        .emoji-rain {
+            font-size: 40px;
+            margin: 20px 0;
+        }
+
+        .question {
+            font-size: 36px;
+            color: #ff1493;
+            margin: 30px 0;
+            font-weight: bold;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            min-height: 200px;
+            position: relative;
+            width: 100%;
+        }
+
+        button {
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 32px;
+            font-weight: bold;
+            padding: 20px 40px;
+            border: 5px solid;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #yesBtn {
+            background: linear-gradient(45deg, #ff1493, #ff69b4);
+            color: white;
+            border-color: #dc143c;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.2);
+            box-shadow: 0 12px 25px rgba(220, 20, 60, 0.4);
+        }
+
+        #noBtn {
+            background: linear-gradient(45deg, #ff69b4, #ffb6c1);
+            color: #dc143c;
+            border-color: #ff1493;
+            position: relative;
+            transition: none;
+        }
+
+        #noBtn:hover {
+            /* Hover is handled by JavaScript */
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .reveal {
+            animation: revealAnimation 1s ease-out;
+        }
+
+        @keyframes revealAnimation {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) rotate(-180deg);
+            }
+            50% {
+                transform: scale(1.2) rotate(10deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        .success-message {
+            font-size: 40px;
+            color: #dc143c;
+            margin: 30px 0;
+            font-weight: bold;
+            animation: bounce 0.5s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .patrick-img {
+            max-width: 100%;
+            border-radius: 20px;
+            border: 6px solid #ff1493;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .extra-text {
+            font-size: 24px;
+            color: #ff1493;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating hot dogs background -->
+    <div class="hotdog">🌭</div>
+    <div class="hotdog">🌮</div>
+    <div class="hotdog">🍕</div>
+    <div class="hotdog">🌯</div>
+
+    <div class="container" id="questionPage">
+        <h1>🔥 URGENT MESSAGE 🔥</h1>
+        <div class="emoji-rain">💖 🌹 💝 🌹 💖</div>
+        <p class="question">Sam, will you be my Valentine?</p>
+        <div class="emoji-rain">✨ 💕 ✨ 💕 ✨</div>
+        
+        <div class="button-container">
+            <button id="yesBtn" onclick="handleYes()">YES! 💖</button>
+            <button id="noBtn">no...</button>
+        </div>
+    </div>
+
+    <div class="container hidden" id="successPage">
+        <div class="success-message">🎉 YAAAAAS! 🎉</div>
+        <div class="emoji-rain">💖💖💖💖💖💖💖</div>
+        <img src="patrick.png" 
+             alt="Patrick Star" 
+             class="patrick-img" 
+             id="patrickImg">
+        <p class="extra-text">I KNEW YOU COULDN'T RESIST! 😎</p>
+        <p class="extra-text">Get ready for the CORNIEST Valentine's Day ever! 🌽💖</p>
+        <div class="emoji-rain">🌭 🍕 🌮 🍔 🌯</div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const buttonContainer = document.querySelector('.button-container');
+        let moveCount = 0;
+
+        // Make the "no" button run away
+        noBtn.addEventListener('mouseover', function() {
+            // Switch to absolute positioning when it starts moving
+            if (noBtn.style.position !== 'absolute') {
+                const rect = noBtn.getBoundingClientRect();
+                const containerRect = buttonContainer.getBoundingClientRect();
+                noBtn.style.position = 'absolute';
+                noBtn.style.left = (rect.left - containerRect.left) + 'px';
+                noBtn.style.top = (rect.top - containerRect.top) + 'px';
+            }
+            
+            const containerRect = buttonContainer.getBoundingClientRect();
+            const btnRect = noBtn.getBoundingClientRect();
+            
+            // Calculate random position within a larger area
+            const maxX = containerRect.width - btnRect.width - 40;
+            const maxY = containerRect.height - btnRect.height - 40;
+            
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+            
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+            
+            moveCount++;
+            
+            // After 5 moves, make it say something funny
+            if (moveCount === 5) {
+                noBtn.textContent = "STOP IT! 😤";
+            } else if (moveCount === 10) {
+                noBtn.textContent = "IM SERIOUS! 🏃";
+            } else if (moveCount === 15) {
+                noBtn.textContent = "JUST PICK YES! 😭";
+            }
+        });
+
+        // If they somehow click "no" (shouldn't happen easily)
+        noBtn.addEventListener('click', function() {
+            alert("NOPE! That button doesn't work! Pick YES! 😈");
+        });
+
+        function handleYes() {
+            const questionPage = document.getElementById('questionPage');
+            const successPage = document.getElementById('successPage');
+            
+            questionPage.classList.add('hidden');
+            successPage.classList.remove('hidden');
+            successPage.classList.add('reveal');
+            
+            // Confetti effect with emojis
+            createEmojiConfetti();
+        }
+
+        function createEmojiConfetti() {
+            const emojis = ['💖', '💝', '💕', '💗', '❤️', '🌹', '✨', '🌭', '🍕'];
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const emoji = document.createElement('div');
+                    emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                    emoji.style.position = 'fixed';
+                    emoji.style.left = Math.random() * 100 + 'vw';
+                    emoji.style.top = '-50px';
+                    emoji.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                    emoji.style.zIndex = '1000';
+                    emoji.style.pointerEvents = 'none';
+                    document.body.appendChild(emoji);
+                    
+                    const duration = Math.random() * 3 + 2;
+                    emoji.style.animation = `fall ${duration}s linear`;
+                    
+                    setTimeout(() => emoji.remove(), duration * 1000);
+                }, i * 100);
+            }
+        }
+
+        // Add fall animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
